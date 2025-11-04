@@ -31,6 +31,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Nossas novas rotas de CRUD
     Route::prefix('admin')->middleware('role:Admin|Gestor')->name('admin.')->group(function () {
         Route::resource('branches', \App\Http\Controllers\Admin\BranchController::class);
+
+        Route::resource('bays', \App\Http\Controllers\Admin\BayController::class);
     });
 });
 
